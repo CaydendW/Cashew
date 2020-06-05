@@ -1,8 +1,7 @@
+#Made by CaydendW on github
 import speech_recognition as sr
 import win32com.client
 import webbrowser
-import wikipedia
-import keyboard
 import urllib
 import lxml
 import math
@@ -17,14 +16,14 @@ from lxml import etree
 
 speaker = win32com.client.Dispatch("SAPI.SpVoice")
 
-weather = Yr(location_name='South_Africa/Gauteng/Rivonia/')
+weather = Yr(location_name='South_Africa/KwaZulu-Natal/Durban/') #You will have to change the location
 
 r = sr.Recognizer()
 r.dynamic_energy_threshold = False
 
 speaker.Speak("I am cashew, a TTS Virtual assistant, clap before talking so I can hear you, how can I help you?")
 mixer.init()
-mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip-Marianne_Gagnon-120342607.mp3")
+mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip-Marianne_Gagnon-120342607.mp3") #Change the directory to your directory.
 mixer.music.play()
 
 for lop in range(999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999):
@@ -38,7 +37,7 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
 
         if "search" in recog:
             speaker.Speak("Sure. What do you want me to search?")
-            speech2 = sr.Microphone(device_index=2)
+            speech2 = sr.Microphone(device_index=2)#This might have to change depending on which microphone you want it to use
 
             with speech2 as source:
                 qaudio = r.listen(source)
@@ -254,7 +253,7 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
             speaker.Speak("I'm glad something is going well.")
 
         elif "help" in recog:
-            speaker.Speak("Search conducts a search on wikipedia, play plays any youtube video, time gives the current time, date gives the current date, off turns me off, credits gives credits to the coder of cashew, define gives the definition of a word, synonym gives a synonym, antonym gives an antonym, spell spells any word, where searches for a location, weather gives the weather and help tells this list.")
+            
 
         else:
             speaker.Speak("Sorry but " + recog + "is not one of my commands. Say help to hear a list of commands.")
@@ -271,7 +270,7 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
         mixer.music.play()
         time.sleep(1)
         try:
-            os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")
+            os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")#Change this to the directory of the cookie you want to delete
         except FileNotFoundError:
             pass
         exit()
