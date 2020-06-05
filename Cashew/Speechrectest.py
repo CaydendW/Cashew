@@ -253,7 +253,7 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
             speaker.Speak("I'm glad something is going well.")
 
         elif "help" in recog:
-            
+            webbrowser.open("https://github.com/CaydendW/Cashew/blob/master/help.md")
 
         else:
             speaker.Speak("Sorry but " + recog + "is not one of my commands. Say help to hear a list of commands.")
