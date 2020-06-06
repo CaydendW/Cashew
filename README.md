@@ -31,3 +31,17 @@ The project has a few notes to consider.
 # Use of my code
 A custom license is used. This work is under Creative Commons Attribution-ShareAlike 4.0 International. If you want to use my work please give me attribution. A valid attribution URL is https://github.com/CaydendW/ 
 
+# Atribution
+I used some sound files for the on and off sounds. They are both listed under [Atribution 3.0](https://creativecommons.org/licenses/by/3.0/)
+
+Title: Robot Blip
+Uploaded: 01.11.11
+License: Attribution 3.0
+Edits: None
+Recorded by Marianne Gagnon
+
+Title: Robot Blip 2
+Uploaded: 01.05.11
+License: Attribution 3.0
+Edits: None
+Recorded by Marianne Gagnon
