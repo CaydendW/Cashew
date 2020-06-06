@@ -4,22 +4,22 @@ A python based virtual assistant.
 # Dependencies
 This project has a lot of dependencies:
 
-1. SpeechRecognition 3.8.1  pip install SpeechRecognition
-2. pyttsx3  pip install pyttsx3
-3. webbrowser comes pre-installed
-4. wikipedia  pip install wikipedia
-5. urllib comes pre-installed
-6. lxml pip install lxml 
-7. nltk pip install nltk
-8. googlesearch pip install beautifulsoup4 && pip install google
-9. pygame pip install pygame
-10. yr-python pip install python-yr
-11. time  comes pre-installed
-12. math  comes pre-installed
-13. os  comes pre-installed
-14. PyAudio pip install PyAudio*
+1. SpeechRecognition 3.8.1 '''pip install SpeechRecognition'''
+2. pyttsx3 '''pip install pyttsx3'''
+3. webbrowser '''comes pre-installed'''
+4. wikipedia '''pip install wikipedia'''
+5. urllib '''comes pre-installed'''
+6. lxml '''pip install lxml'''
+7. nltk '''pip install nltk'''
+8. googlesearch '''pip install beautifulsoup4 && pip install google'''
+9. pygame '''pip install pygame'''
+10. yr-python '''pip install python-yr'''
+11. time '''comes pre-installed'''
+12. math '''comes pre-installed'''
+13. os '''comes pre-installed'''
+14. PyAudio '''pip install PyAudio'''\*
 
-* PyAudio is very difficult to get on windows try the pip command and if that fails, go to https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14 and follow the first answer and try that, it worked for me.
+\* PyAudio is very difficult to get on windows try the pip command and if that fails, go to https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14 and follow the first answer and try that, it worked for me.
 
 # Notes
 The project has a few notes to consider.
