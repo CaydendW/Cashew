@@ -5,7 +5,7 @@ A python based virtual assistant.
 This project has a lot of dependencies:
 
 1. SpeechRecognition 3.8.1 ```pip install SpeechRecognition```
-2. pyttsx3 ```pip install pyttsx3```
+2. pyttsx3 ```pyttsx3==2.71```
 3. webbrowser ```comes pre-installed```
 4. wikipedia ```pip install wikipedia```
 5. urllib ```comes pre-installed```
