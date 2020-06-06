@@ -29,5 +29,5 @@ The project has a few notes to consider.
 4. There are a lot of lines that contain the following line of code: ```speech = sr.Microphone(device_index=2)```. I had to make my microphone's device index 2 because that was the microphone I want to use. You might have to change this around to whatever input device suits your needs.
 
 # Use of my code
-A custom license is used. This work is under Creative Commons Attribution-ShareAlike 4.0 International. If you want to use my work please give me credit.
+A custom license is used. This work is under Creative Commons Attribution-ShareAlike 4.0 International. If you want to use my work please give me attribution. A valid atribution URL is https://github.com/CaydendW/ 
 
