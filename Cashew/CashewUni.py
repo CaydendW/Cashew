@@ -17,7 +17,7 @@ from lxml import etree
 engine = pyttsx3.init()
 engine.setProperty('rate', 128)
 
-weather = Yr(location_name='South_Africa/Gauteng/Rivonia/')
+weather = Yr(location_name='South_Africa/KwaZulu-Natal/Durban/') #Fill in your own location. More help in readme.md
 
 r = sr.Recognizer()
 r.dynamic_energy_threshold = False
@@ -30,7 +30,7 @@ mixer.music.play()
 
 for lop in range(999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999):
     try:
-        speech = sr.Microphone(device_index=2)
+        speech = sr.Microphone(device_index=2) #You might have to change this so you get differnet microphone input. There are more of these further down
         with speech as source:
             audio = r.listen(source)
             r.adjust_for_ambient_noise(source)
