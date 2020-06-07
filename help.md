@@ -1,6 +1,5 @@
 # Help
-Here is a list of all the current commands for Cashew:
-=
+## Here is a list of all the current commands for Cashew:
 
 1. Search conducts a search on Wikipedia.
 2. Bing searchs a query on Bing's search engine.
@@ -15,6 +14,9 @@ Here is a list of all the current commands for Cashew:
 11. Weather gives a 4 hour forecast using yr.no's api.
 13. Off stops the code.
 14. Help takes you to this page.
-15. Credits links to my github page.(Shameless plug).
+15. Joke tells a joke.
+16. Credits links to my github page.(Shameless plug).
 
 It also has a few other responses to general phrases such as "hello".
+
+This is for V2.0
