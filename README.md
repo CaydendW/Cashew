@@ -21,6 +21,8 @@ This project has a lot of dependencies:
 15. json ```pip install json```
 16. request ```pip install requests```
 
+I have included a requirements.txt file to help speed up the process, but The pyaudio module might not install. (See below)
+
 \* PyAudio is very difficult to get on windows try the pip command and if that fails, go to [stackoverflow]( https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14) and follow the first answer and try that, it worked for me.
 
 # Notes
