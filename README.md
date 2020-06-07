@@ -18,6 +18,8 @@ This project has a lot of dependencies:
 12. math ```comes pre-installed```
 13. os ```comes pre-installed```
 14. PyAudio ```pip install pyaudio```\*
+15. json ```pip install json```
+16. request ```pip install requests```
 
 \* PyAudio is very difficult to get on windows try the pip command and if that fails, go to [stackoverflow]( https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14) and follow the first answer and try that, it worked for me.
 
@@ -34,14 +36,14 @@ A custom license is used. This work is under Creative Commons Attribution-ShareA
 # Attribution
 I used some sound files for the on and off sounds. They are both listed under [Atribution 3.0](https://creativecommons.org/licenses/by/3.0/)
 
-## Sound file 1
+### Sound file 1
 * Title: Robot Blip
 * Uploaded: 01.11.11
 * License: Attribution 3.0
 * Edits: None
 * Recorded by Marianne Gagnon
 
-## Sound file 2
+### Sound file 2
 * Title: Robot Blip 2
 * Uploaded: 01.05.11
 * License: Attribution 3.0
