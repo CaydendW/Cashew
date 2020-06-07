@@ -18,7 +18,7 @@ This project has a lot of dependencies:
 12. math ```comes pre-installed```
 13. os ```comes pre-installed```
 14. PyAudio ```pip install pyaudio```\*
-15. json ```pip install json```
+15. json ```comes pre-installed```
 16. request ```pip install requests```
 
 I have included a requirements.txt file to help speed up the process, but The pyaudio module might not install. (See below)
