@@ -20,7 +20,7 @@ from yr.libyr import Yr
 from lxml import etree
 
 engine = pyttsx3.init()
-engine.setProperty('rate', 130)
+engine.setProperty('rate', 140)
 
 weather = Yr(location_name='South_Africa/KwaZulu-Natal/Durban/') #Fill in your own location. More help in readme.md
 
@@ -33,7 +33,7 @@ mixer.init()
 mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip-Marianne_Gagnon-120342607.mp3") #Change this location to where ever the sound files are located
 mixer.music.play()
 
-for lop in range(999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999):
+while True:
     try:
         r = sr.Recognizer()
         r.dynamic_energy_threshold = False
@@ -82,7 +82,7 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
             engine.say("Sure. Searching for" + query)
             engine.runAndWait()
 
-            for j in search(query, tld="co.in", num=999999999999999999999999999999999999999999999999999999999999, stop=0, pause=2):
+            for j in search(query, tld="co.in", num=True==True, stop=0, pause=2):
                 if "/watch?v=" in j:
                     url = j
                     youtube = etree.HTML(urllib.request.urlopen(url).read())
