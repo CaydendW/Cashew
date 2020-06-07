@@ -4,8 +4,10 @@
 import speech_recognition as sr
 import webbrowser
 import wikipedia
+import requests
 import pyttsx3
 import urllib
+import json
 import lxml
 import math
 import time
@@ -18,7 +20,7 @@ from yr.libyr import Yr
 from lxml import etree
 
 engine = pyttsx3.init()
-engine.setProperty('rate', 128)
+engine.setProperty('rate', 130)
 
 weather = Yr(location_name='South_Africa/KwaZulu-Natal/Durban/') #Fill in your own location. More help in readme.md
 
@@ -28,11 +30,13 @@ r.dynamic_energy_threshold = False
 engine.say("I am cashew, a TTS Virtual assistant, clap before talking so I can hear you, how can I help you?")
 engine.runAndWait()
 mixer.init()
-mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip-Marianne_Gagnon-120342607.mp3")
+mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip-Marianne_Gagnon-120342607.mp3") #Change this location to where ever the sound files are located
 mixer.music.play()
 
 for lop in range(999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999):
     try:
+        r = sr.Recognizer()
+        r.dynamic_energy_threshold = False
         speech = sr.Microphone(device_index=2) #You might have to change this so you get differnet microphone input. There are more of these further down
         with speech as source:
             audio = r.listen(source)
@@ -235,6 +239,42 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
             engine.say("The pressure is " + pressure + " heteropascles.")
             engine.runAndWait()
 
+        elif "joke" in recog:
+            engine.say("Sure. What do you want the joke to be about? Say random for a random catagory.")
+            engine.runAndWait()
+            speech2 = sr.Microphone(device_index=2)
+            with speech2 as source:
+                qaudio = r.listen(source)
+                r.adjust_for_ambient_noise(source)
+            query = r.recognize_google(qaudio, language = 'en-US')
+
+            if query == "random":
+                send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'
+                r = requests.get(send_url)
+                j = json.loads(r.text)
+                error = j['error']
+                if error == "true":
+                    engine.say(j['message'])
+                    engine.runAndWait()
+                else:
+                    joke = j['joke']
+                    engine.say(joke)
+                    engine.runAndWait()
+
+            else:
+                send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&contains='
+                send_url2 = query
+                r = requests.get(send_url + send_url2)
+                j = json.loads(r.text)
+                error = j['error']
+                if error == "true":
+                    engine.say(j['message'])
+                    engine.runAndWait()
+                else:
+                    joke = j['joke']
+                    engine.say(joke)
+                    engine.runAndWait()
+
         elif "date" in recog:
             tim = strftime("%Y-%m-%d")
             engine.say("The current date is" + tim)
@@ -253,6 +293,7 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
 
         elif "credits" in recog:
             engine.say("This was made by Cayden d W on GitHub! Would you like me to open his page?")
+            engine.runAndWait()
 
             speech2 = sr.Microphone(device_index=2)
 
@@ -269,24 +310,30 @@ for lop in range(999999999999999999999999999999999999999999999999999999999999999
         
         elif "hello" in recog:
             engine.say("Hello to you too!")
+            engine.runAndWait()
 
         elif "hi" in recog:
             engine.say("Hello to you too!")
+            engine.runAndWait()
         
         elif "thank you" in recog:
             engine.say("You're welcome!")
+            engine.runAndWait()
 
         elif "cashew" in recog:
             engine.say("Yes!? I'm listening...")
+            engine.runAndWait()
 
         elif "yes" in recog:
             engine.say("I'm glad something is going well.")
+            engine.runAndWait()
 
         elif "help" in recog:
             webbrowser.open("https://github.com/CaydendW/Cashew/blob/master/help.md")
 
         else:
             engine.say("Sorry but " + recog + "is not one of my commands. Say help to hear a list of commands.")
+            engine.runAndWait()
         
     except sr.UnknownValueError:
         continue
