@@ -17,7 +17,7 @@ This project has a lot of dependencies:
 11. time ```comes pre-installed```
 12. math ```comes pre-installed```
 13. os ```comes pre-installed```
-14. PyAudio ```pip install PyAudio```\*
+14. PyAudio ```pip install pyaudio```\*
 
 \* PyAudio is very difficult to get on windows try the pip command and if that fails, go to [stackoverflow]( https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14) and follow the first answer and try that, it worked for me.
 
