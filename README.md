@@ -51,3 +51,7 @@ I used some sound files for the on and off sounds. They are both listed under [A
 * License: Attribution 3.0
 * Edits: None
 * Recorded by Marianne Gagnon
+
+I also used a joke API from fellow Github user: @Sv443.
+I did not have to give attribution but the project is here: https://github.com/Sv443/JokeAPI/
+Please go give him a star and add some jokes at https://sv443.net/jokeapi/v2/#submit !
