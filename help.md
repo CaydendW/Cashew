@@ -15,8 +15,9 @@
 13. Off stops the code.
 14. Help takes you to this page.
 15. Joke tells a joke.
+16. News gets the top news headline from Google.
 16. Credits links to my github page.(Shameless plug).
 
 It also has a few other responses to general phrases such as "hello".
 
-This is for V2.0
+This is for V3.0
