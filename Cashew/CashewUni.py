@@ -11,8 +11,10 @@ import json
 import lxml
 import math
 import time
+import bs4
 import os
 from nltk.corpus import wordnet as wn
+from bs4 import BeautifulSoup as soup
 from time import gmtime, strftime
 from googlesearch import search
 from pygame import mixer
@@ -88,13 +90,21 @@ while True:
                     youtube = etree.HTML(urllib.request.urlopen(url).read())
                     video_title = youtube.xpath("//span[@id='eow-title']/@title")
                     title = ''.join(video_title)
-                    if "reaction" not in title:
-                        if "REACTION" not in title:
-                            if "Reaction" not in title:
-                                engine.say("Now playing" + title)
-                                engine.runAndWait()
-                                webbrowser.open(url)
-                                break
+
+                    if "reaction" in query:
+                        engine.say("Now playing" + title)
+                        engine.runAndWait()
+                        webbrowser.open(url)
+                        break
+
+                    else:
+                        if "reaction" not in title:
+                            if "REACTION" not in title:
+                                if "Reaction" not in title:
+                                    engine.say("Now playing" + title)
+                                    engine.runAndWait()
+                                    webbrowser.open(url)
+                                    break
         
         elif "time" in recog:
             tim = strftime("%H:%M:%S")
@@ -230,7 +240,7 @@ while True:
             engine.runAndWait()
             engine.say("The temperature will be " + tempvalue + " degrees " + tempunit + " average.")
             engine.runAndWait()
-            engine.say("With a " + skycon)
+            engine.say("With a " + skycon + ".")
             engine.runAndWait()
             engine.say("It will rain " + rainvalue + " millilitres in the next 4 hours.")
             engine.runAndWait()
@@ -247,33 +257,96 @@ while True:
                 qaudio = r.listen(source)
                 r.adjust_for_ambient_noise(source)
             query = r.recognize_google(qaudio, language = 'en-US')
+            try:
+                if query == "random":
+                    send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist'
+                    r = requests.get(send_url)
+                    j = json.loads(r.text)
+                    error = j['error']
+                    if j['type'] == "twopart":
+                        if error == "true":
+                            engine.say(j['message'])
+                            engine.runAndWait()
+                        else:
+                            joke1 = j['setup']
+                            joke2 = j['delivery']
+                            engine.say(joke1)
+                            engine.runAndWait()
+                            engine.say(joke2)
+                            engine.runAndWait()
 
-            if query == "random":
-                send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single'
-                r = requests.get(send_url)
-                j = json.loads(r.text)
-                error = j['error']
-                if error == "true":
-                    engine.say(j['message'])
-                    engine.runAndWait()
+                    else:
+                        if error == "true":
+                            engine.say(j['message'])
+                            engine.runAndWait()
+                        else:
+                            joke = j['joke']
+                            engine.say(joke)
+                            engine.runAndWait()
+
                 else:
-                    joke = j['joke']
-                    engine.say(joke)
-                    engine.runAndWait()
+                    send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&contains='
+                    send_url2 = query
+                    r = requests.get(send_url + send_url2)
+                    j = json.loads(r.text)
+                    error = j['error']
+                    if j['type'] == "twopart":
+                        if error == "true":
+                            engine.say(j['message'])
+                            engine.runAndWait()
+                        else:
+                            joke1 = j['setup']
+                            joke2 = j['delivery']
+                            engine.say(joke1)
+                            engine.runAndWait()
+                            engine.say(joke2)
+                            engine.runAndWait()
+                            
+                    else:
+                        if error == "true":
+                            engine.say(j['message'])
+                            engine.runAndWait()
+                        else:
+                            joke = j['joke']
+                            engine.say(joke)
+                            engine.runAndWait()
+            except KeyError:
+                engine.say("No joke was found with that key word.")
+                engine.runAndWait()
+
+        elif "news" in recog:
+            news_url="https://news.google.com/news/rss"
+            Client=urllib.request.urlopen(news_url)
+            xml_page=Client.read()
+            Client.close()
+
+            soup_page=soup(xml_page,"xml")
+            news_list=soup_page.findAll("item")
+
+            for news in news_list:
+                engine.say("At " + news.pubDate.text + " The following story happened.")
+                engine.runAndWait()
+                engine.say(news.title.text)
+                engine.runAndWait()
+                engine.say("The source of this news is " + news.source.text)
+                engine.runAndWait()
+                break
+            
+            engine.say("Would you like me to open the story up in your browser?")
+            engine.runAndWait()
+
+            speech2 = sr.Microphone(device_index=2)
+            with speech2 as source:
+                qaudio = r.listen(source)
+                r.adjust_for_ambient_noise(source)
+            query = r.recognize_google(qaudio, language = 'en-US')
+
+            if "yes" in query:
+                link = news.link.text
+                webbrowser.open(link)
 
             else:
-                send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&contains='
-                send_url2 = query
-                r = requests.get(send_url + send_url2)
-                j = json.loads(r.text)
-                error = j['error']
-                if error == "true":
-                    engine.say(j['message'])
-                    engine.runAndWait()
-                else:
-                    joke = j['joke']
-                    engine.say(joke)
-                    engine.runAndWait()
+                continue
 
         elif "date" in recog:
             tim = strftime("%Y-%m-%d")
