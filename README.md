@@ -42,14 +42,14 @@ I used some sound files for the on and off sounds. They are both listed under [A
 * Title: Robot Blip
 * Uploaded: 01.11.11
 * License: Attribution 3.0
-* Edits: None
+* Edits: Changed format from mp3 to ogg
 * Recorded by Marianne Gagnon
 
 ### Sound file 2
 * Title: Robot Blip 2
 * Uploaded: 01.05.11
 * License: Attribution 3.0
-* Edits: None
+* Edits: Changed format from mp3 to ogg
 * Recorded by Marianne Gagnon
 
 I also used a joke API from fellow Github user: [Sv443](https://github.com/Sv443/).
