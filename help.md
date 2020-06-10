@@ -1,5 +1,6 @@
 # Help
 ## Here is a list of all the current commands for Cashew:
+* You will have to say "Cashew" to activate him after that the following commands will be availible:
 
 1. Search conducts a search on Wikipedia.
 2. Bing searchs a query on Bing's search engine.
@@ -20,4 +21,4 @@
 
 It also has a few other responses to general phrases such as "hello".
 
-This is for V3.0
+This is for V4.0
