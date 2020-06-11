@@ -7,6 +7,7 @@ import wikipedia
 import requests
 import pyttsx3
 import urllib
+import random
 import json
 import lxml
 import math
@@ -20,6 +21,8 @@ from googlesearch import search
 from pygame import mixer
 from yr.libyr import Yr
 from lxml import etree
+
+os.system('cls' if os.name == 'nt' else 'clear')
 
 engine = pyttsx3.init()
 engine.setProperty('rate', 140)
@@ -48,12 +51,15 @@ try:
     while True:
         wake = ""
 
+        w = sr.Recognizer()
+        w.dynamic_energy_threshold = True
+
         speech5 = sr.Microphone(device_index=microphone_index)
         with speech5 as source:
-            oaudio = r.listen(source, timeout=10.0)
-            r.adjust_for_ambient_noise(source)
+            oaudio = w.listen(source)
+            w.adjust_for_ambient_noise(source)
         try:
-            wake = r.recognize_google(oaudio, language = 'en-US')
+            wake = w.recognize_google(oaudio, language = 'en-US')
         except sr.UnknownValueError:
             pass
         except sr.WaitTimeoutError:
@@ -299,7 +305,7 @@ try:
                             r.adjust_for_ambient_noise(source)
                         query = r.recognize_google(qaudio, language = 'en-US')
                         try:
-                            if query == "random":
+                            if "random" in query:
                                 send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist'
                                 r = requests.get(send_url)
                                 j = json.loads(r.text)
@@ -308,6 +314,7 @@ try:
                                     if error == "true":
                                         engine.say(j['message'])
                                         engine.runAndWait()
+                                        break
                                     else:
                                         joke1 = j['setup']
                                         joke2 = j['delivery']
@@ -315,15 +322,18 @@ try:
                                         engine.runAndWait()
                                         engine.say(joke2)
                                         engine.runAndWait()
+                                        break
 
                                 else:
                                     if error == "true":
                                         engine.say(j['message'])
                                         engine.runAndWait()
+                                        break
                                     else:
                                         joke = j['joke']
                                         engine.say(joke)
                                         engine.runAndWait()
+                                        break
 
                             else:
                                 send_url = 'https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&contains='
@@ -335,6 +345,7 @@ try:
                                     if error == "true":
                                         engine.say(j['message'])
                                         engine.runAndWait()
+                                        break
                                     else:
                                         joke1 = j['setup']
                                         joke2 = j['delivery']
@@ -342,15 +353,19 @@ try:
                                         engine.runAndWait()
                                         engine.say(joke2)
                                         engine.runAndWait()
+                                        break
                                         
                                 else:
                                     if error == "true":
                                         engine.say(j['message'])
                                         engine.runAndWait()
+                                        break
                                     else:
                                         joke = j['joke']
                                         engine.say(joke)
                                         engine.runAndWait()
+                                        break
+
                         except KeyError:
                             engine.say("No joke was found with that key word.")
                             engine.runAndWait()
@@ -386,6 +401,7 @@ try:
                         if "yes" in query:
                             link = news.link.text
                             webbrowser.open(link)
+                            break
 
                         else:
                             continue
@@ -402,9 +418,10 @@ try:
                         time.sleep(1)
                         try:
                             os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")
+                            exit()
                         except FileNotFoundError:
-                            pass
-                        break
+                            exit()
+                        
 
                     elif "credits" in recog:
                         engine.say("This was made by Cayden d W on GitHub! Would you like me to open his page?")
@@ -438,6 +455,27 @@ try:
                         engine.say("You're welcome!")
                         engine.runAndWait()
                         break
+
+                    elif "coin" in recog:
+                        coin = random.randint(1,2)
+                        if coin==1:
+                            engine.say("Heads")
+                            engine.runAndWait()
+                            break
+                        else:
+                            engine.say("Tails")
+                            engine.runAndWait()
+                            break
+
+                    elif "dice" in recog:
+                        engine.say("You rolled a " + str(random.randint(1,6)))
+                        engine.runAndWait()
+                        break
+
+                    elif "0 / 0" in recog:
+                        engine.say("I just.. I just what do i .. wha i.. ggfuspm i just. wfubhdnuhlihgvfbihgvybzsxcrdrrsv57helpme ..fgw6e7yesd5rfd68tgtwo7yjuokmc,,ioueuyrepq87ty89")
+                        engine.runAndWait()
+                        exit()
 
                     elif "cashew" in recog:
                         engine.say("Yes!? I'm listening...")
@@ -477,8 +515,19 @@ try:
                     time.sleep(1)
                     try:
                         os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")
+                        exit()
                     except FileNotFoundError:
-                        pass
-                    exit()
+                        exit()
+
+except KeyboardInterrupt:
+    offnoise()
+    time.sleep(1)
+    try:
+        os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")
+        exit()
+    except FileNotFoundError:
+        exit()
+    exit()
+
 except:
     engine.say("An unknown exception occured.")
