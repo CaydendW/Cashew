@@ -20,6 +20,7 @@ This project has a lot of dependencies:
 14. PyAudio ```pip install pyaudio```\*
 15. json ```comes pre-installed```
 16. request ```pip install requests```
+17. random ```comes pre-installed```
 
 I have included a requirements.txt file to help speed up the process, but The pyaudio module might not install. (See below)
 
