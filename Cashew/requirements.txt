@@ -15,4 +15,4 @@ requests
 pyaudio
 
 # Specific versions
-pyttsx3==2.71
+pyttsx3==2.6
