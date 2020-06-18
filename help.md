@@ -23,4 +23,4 @@
 
 It also has a few other responses to general phrases such as "hello".
 
-This is for V4.1
+This is for V4.2
