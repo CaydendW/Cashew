@@ -24,7 +24,7 @@ This project has a lot of dependencies:
 
 I have included a requirements.txt file to help speed up the process, but The pyaudio module might not install. (See below)
 
-\* PyAudio is very difficult to get on windows try the pip command and if that fails, go to [stackoverflow]( https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14) and follow the first answer and try that, it worked for me.
+\* PyAudio is very difficult to get on windows try the pip command and if that fails, go to [stackoverflow]( https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14/55630212#55630212) and follow the instructions. That was worked for me. If that doesn't work and you've got Conda try to Conda install it.
 
 # Notes
 The project has a few notes to consider.
