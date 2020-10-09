@@ -39,12 +39,12 @@ microphone_index = 2 #Change this to whatever audio channel your microphone is o
 
 def onnoise():
     mixer.init()
-    mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip-Marianne_Gagnon-120342607.ogg") #Change this location to where ever the sound files are located
+    mixer.music.load(r"Robot_blip-Marianne_Gagnon-120342607.ogg") #Change this location to where ever the sound files are located
     mixer.music.play()
 
 def offnoise():
     mixer.init()
-    mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip_2-Marianne_Gagnon-299056732.ogg") #Change this to where ever the sound files are located
+    mixer.music.load(r"Robot_blip_2-Marianne_Gagnon-299056732.ogg") #Change this to where ever the sound files are located
     mixer.music.play()
 
 try:
@@ -514,7 +514,7 @@ try:
                     offnoise()
                     time.sleep(1)
                     try:
-                        os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")
+                        os.remove(r".google-cookie")
                         exit()
                     except FileNotFoundError:
                         exit()
@@ -523,7 +523,7 @@ except KeyboardInterrupt:
     offnoise()
     time.sleep(1)
     try:
-        os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")
+        os.remove(r".google-cookie")
         exit()
     except FileNotFoundError:
         exit()
