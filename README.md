@@ -29,9 +29,7 @@ I have included a requirements.txt file to help speed up the process, but The py
 # Notes
 The project has a few notes to consider.
 1. At the top of the code, there is a line that says ```weather = Yr(location_name='South_Africa/KwaZulu-Natal/Durban/'```. Inbetween the single quotes you will have to put your location. You can find it by going onto [yr](https://www.yr.no/?spr=eng), searching your location and taking the place from the URL after the /place and putting inbetween the single quotes.
-2. The 'play' function plays youtube videos and google likes to generate cookies. I added a line of code to delete the cookie on termination of the code. It says ```os.remove(r"D:\Users\cayde\Documents\Code\Python\.google-cookie")``` Just replace it with the directory in which your cookie spawns. If it doesn't bother you just remove that line.
-3. In the folder are 2 sound files from [soundbible](http://soundbible.com/tags-ping.html) and they are played using pygame. You will have to change the directory of the sound file play ```mixer.music.load(r"D:\Users\cayde\Documents\Code\Python\Cashew\Robot_blip-Marianne_Gagnon-120342607.mp3")``` to whatever directory you cloned/download the project to so that the program can find the sound files.
-4. There are a lot of lines that contain the following line of code: ```speech = sr.Microphone(device_index=2)```. I had to make my microphone's device index 2 because that was the microphone I want to use. You might have to change this around to whatever input device suits your needs.
+2. There are a lot of lines that contain the following line of code: ```speech = sr.Microphone(device_index=2)```. I had to make my microphone's device index 2 because that was the microphone I want to use. You might have to change this around to whatever input device suits your needs.
 
 # Use of my code
 A custom license is used. This work is under Creative Commons Attribution-ShareAlike 4.0 International. If you want to use my work please give me attribution. A valid attribution URL is https://github.com/CaydendW/ 
